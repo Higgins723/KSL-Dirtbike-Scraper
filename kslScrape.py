@@ -38,8 +38,8 @@ while True:
   price = tree.cssselect("h3.listing-detail-line")
   urls = tree.xpath("//h2/a[contains(@href, 'classifieds/listing/')]//@href")
 
-  history = open('history.txt', 'r+')
   for i in range(len(price)):
+    history = open('history.txt', 'r+')
     message = "Title - %s\nLocation - %s\nPrice - %s\nURL - ksl.com%s" % (titles[i].text_content().strip(), location[i].text_content().strip(), price[i].text_content().strip(), urls[i])
     listing_key = urls[i].translate(all, nodigs) + "\n"
     if listing_key in history:
